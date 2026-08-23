@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>נוגה | עיסוי תאילנדי ופיזיותרפיה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap&subset=hebrew" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Rubik', Arial, sans-serif;
+    background: #f5f9fb;
+    color: #1a3a4a;
+    line-height: 1.6;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* Top bar */
+  .top-bar {
+    background: #e8f4f8;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .top-bar a {
+    color: #2a5a6a;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .top-bar a:hover { color: #e67e22; }
+
+  /* Header */
+  header {
+    background: #fff;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo svg { width: 60px; height: 60px; }
+  .logo-text { font-size: 20px; font-weight: 700; color: #1a5a7a; line-height: 1.2; }
+  .logo-text small { display: block; font-size: 12px; font-weight: 400; color: #5a8a9a; }
+  nav { display: flex; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+  nav a { color: #2a5a6a; padding: 4px 8px; border-radius: 4px; }
+  nav a:hover, nav a.active { color: #e67e22; background: #fef5eb; }
+
+  /* Hero */
+  .hero { display: flex; flex-wrap: wrap; background: #d4e8ef; }
+  .hero-media { flex: 1.4 1 340px; min-height: 320px; position: relative; overflow: hidden; }
+  .hero-media img,
+  .hero-side img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-content {
+    flex: 1 1 280px;
+    padding: 48px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #c8e0ea 0%, #b8d4e0 100%);
+  }
+  .hero-content h1 { font-size: 42px; font-weight: 700; color: #1a4a5a; }
+  .hero-content h2 { font-size: 24px; font-weight: 500; color: #2a6a7a; }
+  .wave { width: 80px; height: 4px; background: #e67e22; border-radius: 2px; margin: 14px 0; }
+  .hero-content p { font-size: 16px; color: #3a5a6a; max-width: 280px; }
+  .hero-side { flex: 0 0 220px; min-height: 320px; position: relative; }
+
+  /* Contact strip */
+  .contact-strip {
+    background: #1a4a5a;
+    color: #fff;
+    padding: 36px 16px;
+    text-align: center;
+  }
+  .contact-strip h3 { font-size: 22px; font-weight: 500; margin-bottom: 20px; }
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .form-row input {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    flex: 1 1 150px;
+    background: #e8f4f8;
+    color: #1a3a4a;
+  }
+  .form-row button {
+    padding: 12px 32px;
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .form-row button:hover { background: #d35400; }
+  .form-note { margin-top: 10px; font-size: 13px; opacity: .7; }
+
+  /* Sections */
+  section { padding: 48px 20px; max-width: 900px; margin: 0 auto; }
+  section h2 {
+    font-size: 28px;
+    color: #1a4a5a;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  section p { color: #3a5a6a; margin-bottom: 14px; }
+
+  /* About grid */
+  .about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: center;
+  }
+  .about-grid img {
+    flex: 0 0 280px;
+    width: 280px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
+  }
+  .about-grid .bio { flex: 1 1 300px; }
+
+  /* Cards */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 26px 22px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    flex: 1 1 240px;
+    max-width: 300px;
+    text-align: center;
+  }
+  .card h3 { color: #1a5a7a; font-size: 18px; margin-bottom: 10px; }
+  .card p { font-size: 14px; text-align: center; margin: 0; }
+
+  /* Footer */
+  footer {
+    background: #1a3a4a;
+    color: #a0c0d0;
+    text-align: center;
+    padding: 28px 16px;
+    font-size: 14px;
+  }
+  footer strong { color: #fff; }
+
+  @media (max-width: 700px) {
+    nav { display: none; }
+    .logo-text { font-size: 17px; }
+    .logo svg { width: 50px; height: 50px; }
+    .hero-content h1 { font-size: 32px; }
+    .hero-content h2 { font-size: 20px; }
+    .hero-side { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- פרטי קשר - החליפו כאן -->
+<div class="top-bar">
+  <a href="mailto:info@example.com">📧 דוא״ל</a>
+  <a href="https://wa.me/972500000000">📱 ווטסאפ</a>
+  <a href="tel:+972500000000">📞 050-0000000</a>
+  <a href="#">📘 פייסבוק</a>
+</div>
+
+<header>
+  <div class="logo">
+    <!-- לוגו - החליפו ב-img עם הלוגו האמיתי -->
+    <svg viewBox="0 0 100 100" aria-label="לוגו">
+      <circle cx="50" cy="50" r="48" fill="#1a5a7a"/>
+      <text x="50" y="60" text-anchor="middle" font-family="Rubik, Arial, sans-serif" font-size="42" font-weight="700" fill="#bfe0ec">נ</text>
+      <path d="M32 72 q9 6 18 0 t18 0" stroke="#e67e22" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="logo-text">
+      נוגה
+      <small>עיסוי תאילנדי</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#home" class="active">דף הבית</a>
+    <a href="#about-thai">עיסוי תאילנדי</a>
+    <a href="#sessions">סוגי טיפולים</a>
+    <a href="#about">נעים להכיר</a>
+    <a href="#contact">קשר והגעה</a>
+  </nav>
+</header>
+
+<!-- תמונות הירו - החליפו ב-src אמיתי -->
+<div class="hero" id="home">
+  <div class="hero-media">
+    <img src="https://picsum.photos/seed/noga-massage/1000/680" alt="חדר טיפולים">
+  </div>
+  <div class="hero-content">
+    <h1>נוגה</h1>
+    <h2>עיסוי תאילנדי ופיזיותרפיה</h2>
+    <div class="wave"></div>
+    <p>לחצים, מתיחות ושחרור עמוק — מגע מקצועי ומכבד, מותאם אישית</p>
+  </div>
+  <div class="hero-side">
+    <img src="https://picsum.photos/seed/noga-thai/440/640" alt="עיסוי תאילנדי">
+  </div>
+</div>
+
+<div class="contact-strip" id="contact">
+  <h3>צרו קשר ואחזור אליכם בהקדם</h3>
+  <form class="form-row" id="contact-form">
+    <input type="text" name="name" placeholder="שם" required>
+    <input type="tel" name="phone" placeholder="טלפון" required>
+    <button type="submit">שלחו</button>
+  </form>
+  <p class="form-note">ההודעה תישלח אלינו בוואטסאפ</p>
+</div>
+
+<section id="about-thai">
+  <h2>על העיסוי התאילנדי</h2>
+  <p>
+    העיסוי התאילנדי הוא אמנות טיפול עתיקה בת אלפי שנים, המשלבת אקופרסורה,
+    לחיצות לאורך קווי האנרגיה של הגוף ("סן") ומתיחות מסייעות הדומות ל"יוגה פסיבית".
+    בניגוד לעיסויים אחרים, הטיפול מתבצע על מזרן רך על הרצפה, בבגדים נוחים
+    וללא שמן — והמעסה עושה שימוש בכפות הידיים, המרפקים ומשקל הגוף.
+  </p>
+  <p>
+    הטיפול מסייע לשחרור מתח שרירי ונפשי, לשיפור זרימת הדם וגמישות המפרקים
+    ולהקלה על כאבי גב, צוואר וראש. רבים מדווחים גם על שינה טובה יותר, ירידה
+    ברמות הלחץ ותחושת רוגע והתחדשות. כפיזיותרפיסטית, אני משלבת בכל טיפול
+    ידע אנטומי וקליני, ומתאימה את העומק והקצב לגוף ולצרכים שלכם.
+  </p>
+</section>
+
+<section id="sessions">
+  <h2>סוגי טיפולים</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>עיסוי תאילנדי קלאסי</h3>
+      <p>טיפול מלא על מזרן, בבגדים נוחים וללא שמן — לחיצות, מתיחות בסיוע ועבודה לאורך כל הגוף.</p>
+    </div>
+    <div class="card">
+      <h3>עיסוי טיפולי-פיזיותרפי</h3>
+      <p>שילוב הערכה מקצועית עם עבודת רקמות עמוקה — מתאים במיוחד לכאבי גב, צוואר וכתפיים.</p>
+    </div>
+    <div class="card">
+      <h3>למי זה מתאים?</h3>
+      <p>שעות ארוכות מול מסך, כאב כרוני, עומס ספורטיבי, מתח ונדודי שינה — כל טיפול מותאם אישית.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>נעים להכיר</h2>
+  <div class="about-grid">
+    <img src="noga.jpg" alt="נוגה">
+    <div class="bio">
+      <p>
+        אני נוגה, פיזיותרפיסטית ומטפלת בעיסוי תאילנדי. את הדרך שלי עם המגע
+        התחלתי בעולם הטיפולי, ולאורך השנים שילבת בין הכשרה קלינית
+        לבין לימודי העיסוי התאילנדי המסורתי.
+      </p>
+      <p>
+        אני מאמינה שמגע מקצועי וקשוב יכול לשנות — לשחרר כאב, להרגיע את מערכת
+        העצבים ולהחזיר את הגוף לאיזון. בטיפול אתנו תקבלו הקשבה מלאה, התאמה
+        אישית של העומק והקצב, ומרחב בטוח ונעים.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>נוגה</strong> · עיסוי תאילנדי ופיזיותרפיה</p>
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = '972500000000'; // החליפו במספר האמיתי
+
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = this.name.value.trim();
+  const phone = this.phone.value.trim();
+  if (!name || !phone) return;
+  const text = encodeURIComponent('היי, שמי ' + name + ', טלפון ' + phone + '. אשמח לפרטים על עיסוי תאילנדי.');
+  window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
+});
+</script>
+
+</body>
+</html>
