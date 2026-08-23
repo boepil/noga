@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>נוגה | עיסוי תאילנדי ופיזיותרפיה</title>
+<title>נגה וקס | עיסוי תאילנדי ופיזיותרפיה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap&subset=hebrew" rel="stylesheet">
@@ -121,6 +121,16 @@
   }
   .form-row button:hover { background: #d35400; }
   .form-note { margin-top: 10px; font-size: 13px; opacity: .7; }
+  .form-note.ok { color: #9be8b0; opacity: 1; }
+  .form-note.err { color: #ffb3a0; opacity: 1; }
+  .wa-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #bfe0ec;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+  .wa-link:hover { color: #fff; }
 
   /* Sections */
   section { padding: 48px 20px; max-width: 900px; margin: 0 auto; }
@@ -190,12 +200,10 @@
 </head>
 <body>
 
-<!-- פרטי קשר - החליפו כאן -->
 <div class="top-bar">
-  <a href="mailto:info@example.com">📧 דוא״ל</a>
-  <a href="https://wa.me/972500000000">📱 ווטסאפ</a>
-  <a href="tel:+972500000000">📞 050-0000000</a>
-  <a href="#">📘 פייסבוק</a>
+  <a href="mailto:nogavax@gmail.com">📧 דוא״ל</a>
+  <a href="https://wa.me/972585629629">📱 ווטסאפ</a>
+  <a href="tel:+972585629629">📞 058-562-9629</a>
 </div>
 
 <header>
@@ -241,9 +249,13 @@
   <form class="form-row" id="contact-form">
     <input type="text" name="name" placeholder="שם" required>
     <input type="tel" name="phone" placeholder="טלפון" required>
+    <input type="hidden" name="_subject" value="פנייה חדשה מהאתר — נגה וקס">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none">
     <button type="submit">שלחו</button>
   </form>
-  <p class="form-note">ההודעה תישלח אלינו בוואטסאפ</p>
+  <p class="form-note" id="form-status">הפרטים יישלחו ישירות אל נגה באימייל</p>
+  <a class="wa-link" href="https://wa.me/972585629629">או שלחו וואטסאפ ישירות</a>
 </div>
 
 <section id="about-thai">
@@ -286,7 +298,7 @@
     <img src="noga.jpg" alt="נוגה">
     <div class="bio">
       <p>
-        אני נוגה, פיזיותרפיסטית ומטפלת בעיסוי תאילנדי. את הדרך שלי עם המגע
+        אני נגה וקס, פיזיותרפיסטית ומטפלת בעיסוי תאילנדי. את הדרך שלי עם המגע
         התחלתי בעולם הטיפולי, ולאורך השנים שילבת בין הכשרה קלינית
         לבין לימודי העיסוי התאילנדי המסורתי.
       </p>
@@ -300,19 +312,33 @@
 </section>
 
 <footer>
-  <p><strong>נוגה</strong> · עיסוי תאילנדי ופיזיותרפיה</p>
+  <p><strong>נגה וקס</strong> · עיסוי תאילנדי ופיזיותרפיה</p>
 </footer>
 
 <script>
-const WHATSAPP_NUMBER = '972500000000'; // החליפו במספר האמיתי
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/nogavax@gmail.com';
 
-document.getElementById('contact-form').addEventListener('submit', function (e) {
+const form = document.getElementById('contact-form');
+const status = document.getElementById('form-status');
+
+form.addEventListener('submit', async function (e) {
   e.preventDefault();
-  const name = this.name.value.trim();
-  const phone = this.phone.value.trim();
-  if (!name || !phone) return;
-  const text = encodeURIComponent('היי, שמי ' + name + ', טלפון ' + phone + '. אשמח לפרטים על עיסוי תאילנדי.');
-  window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank');
+  const btn = form.querySelector('button');
+  btn.disabled = true;
+  status.textContent = 'שולח...';
+  status.className = 'form-note';
+  try {
+    const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form) });
+    if (!res.ok) throw new Error('send failed');
+    form.reset();
+    status.textContent = 'תודה! הפרטים נשלחו — אחזור אליכם בהקדם.';
+    status.className = 'form-note ok';
+  } catch {
+    status.textContent = 'אופס, השליחה נכשלה. נסו שוב או שלחו וואטסאפ.';
+    status.className = 'form-note err';
+  } finally {
+    btn.disabled = false;
+  }
 });
 </script>
 
