@@ -167,25 +167,42 @@
   }
   .about-grid .bio { flex: 1 1 300px; }
 
-  /* Cards */
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 24px;
-  }
-  .card {
-    background: #fffdf8;
+  /* Gallery slideshow */
+  .slideshow {
+    position: relative;
+    max-width: 900px;
+    height: 460px;
+    margin: 24px auto 0;
     border-radius: 12px;
-    padding: 26px 22px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.08);
-    flex: 1 1 240px;
-    max-width: 300px;
-    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
   }
-  .card h3 { color: #2f5d4e; font-size: 18px; margin-bottom: 10px; }
-  .card p { font-size: 14px; text-align: center; margin: 0; }
+  .slideshow img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: galleryFade 40s infinite;
+  }
+  .slideshow img:nth-child(1) { animation-delay: 0s; }
+  .slideshow img:nth-child(2) { animation-delay: 4s; }
+  .slideshow img:nth-child(3) { animation-delay: 8s; }
+  .slideshow img:nth-child(4) { animation-delay: 12s; }
+  .slideshow img:nth-child(5) { animation-delay: 16s; }
+  .slideshow img:nth-child(6) { animation-delay: 20s; }
+  .slideshow img:nth-child(7) { animation-delay: 24s; }
+  .slideshow img:nth-child(8) { animation-delay: 28s; }
+  .slideshow img:nth-child(9) { animation-delay: 32s; }
+  .slideshow img:nth-child(10) { animation-delay: 36s; }
+  @keyframes galleryFade {
+    0% { opacity: 0; }
+    2.5% { opacity: 1; }
+    10% { opacity: 1; }
+    12.5% { opacity: 0; }
+    100% { opacity: 0; }
+  }
 
   /* Footer */
   footer {
@@ -203,6 +220,7 @@
     .logo svg { width: 50px; height: 50px; }
     .hero-content h1 { font-size: 32px; }
     .hero-content h2 { font-size: 20px; }
+    .slideshow { height: 260px; }
   }
 </style>
 </head>
@@ -234,7 +252,7 @@
   <nav>
     <a href="#home" class="active">דף הבית</a>
     <a href="#about-thai">עיסוי תאילנדי</a>
-    <a href="#sessions">סוגי טיפולים</a>
+    <a href="#gallery">גלריה</a>
     <a href="#about">נעים להכיר</a>
     <a href="#contact">קשר והגעה</a>
   </nav>
@@ -296,21 +314,19 @@
   </p>
 </section>
 
-<section id="sessions">
-  <h2>סוגי טיפולים</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>עיסוי תאילנדי קלאסי</h3>
-      <p>טיפול מלא על מזרן, בבגדים נוחים וללא שמן — לחיצות, מתיחות בסיוע ועבודה לאורך כל הגוף.</p>
-    </div>
-    <div class="card">
-      <h3>עיסוי טיפולי-פיזיותרפי</h3>
-      <p>שילוב הערכה מקצועית עם עבודת רקמות עמוקה — מתאים במיוחד לכאבי גב, צוואר וכתפיים.</p>
-    </div>
-    <div class="card">
-      <h3>למי זה מתאים?</h3>
-      <p>שעות ארוכות מול מסך, כאב כרוני, עומס ספורטיבי, מתח ונדודי שינה — כל טיפול מותאם אישית.</p>
-    </div>
+<section id="gallery">
+  <h2>גלריה</h2>
+  <div class="slideshow">
+    <img src="images/gallery-1.jpg" alt="תמונה 1 מהגלריה">
+    <img src="images/gallery-2.jpg" alt="תמונה 2 מהגלריה">
+    <img src="images/gallery-3.jpg" alt="תמונה 3 מהגלריה">
+    <img src="images/gallery-4.jpg" alt="תמונה 4 מהגלריה">
+    <img src="images/gallery-5.jpg" alt="תמונה 5 מהגלריה">
+    <img src="images/gallery-6.jpg" alt="תמונה 6 מהגלריה">
+    <img src="images/gallery-7.jpg" alt="תמונה 7 מהגלריה">
+    <img src="images/gallery-8.jpg" alt="תמונה 8 מהגלריה">
+    <img src="images/gallery-9.jpg" alt="תמונה 9 מהגלריה">
+    <img src="images/gallery-10.jpg" alt="תמונה 10 מהגלריה">
   </div>
 </section>
 
@@ -360,7 +376,7 @@
 </section>
 
 <footer>
-  <p><strong>נגה</strong> · עיסוי תאילנדי ופיזיותרפיה</p>
+  <p><strong>נגה</strong> · עיסוי תאילנדי</p>
 </footer>
 
 <script>
