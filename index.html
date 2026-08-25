@@ -57,12 +57,21 @@
 
   /* Hero */
   .hero { display: flex; flex-wrap: wrap; background: #e6dfcd; }
-  .hero-video { flex: 1.4 1 340px; min-height: 320px; position: relative; overflow: hidden; }
+  .hero-video {
+    flex: 1.4 1 340px;
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ded5bf 0%, #cfc4a9 100%);
+  }
   .hero-video iframe {
-    position: absolute;
-    inset: 0;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    display: block;
     border: 0;
   }
   .hero-content {
