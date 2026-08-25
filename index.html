@@ -57,14 +57,13 @@
 
   /* Hero */
   .hero { display: flex; flex-wrap: wrap; background: #e6dfcd; }
-  .hero-media { flex: 1.4 1 340px; min-height: 320px; position: relative; overflow: hidden; }
-  .hero-media img,
-  .hero-side img {
+  .hero-video { flex: 1.4 1 340px; min-height: 320px; position: relative; overflow: hidden; }
+  .hero-video iframe {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border: 0;
   }
   .hero-content {
     flex: 1 1 280px;
@@ -80,7 +79,6 @@
   .hero-content h2 { font-size: 24px; font-weight: 500; color: #4a6b52; }
   .wave { width: 80px; height: 4px; background: #b0824f; border-radius: 2px; margin: 14px 0; }
   .hero-content p { font-size: 16px; color: #5c584a; max-width: 280px; }
-  .hero-side { flex: 0 0 220px; min-height: 320px; position: relative; }
 
   /* Contact strip */
   .contact-strip {
@@ -194,7 +192,6 @@
     .logo svg { width: 50px; height: 50px; }
     .hero-content h1 { font-size: 32px; }
     .hero-content h2 { font-size: 20px; }
-    .hero-side { display: none; }
   }
 </style>
 </head>
@@ -228,19 +225,15 @@
   </nav>
 </header>
 
-<!-- תמונות הירו - החליפו ב-src אמיתי -->
 <div class="hero" id="home">
-  <div class="hero-media">
-    <img src="https://picsum.photos/seed/noga-massage/1000/680" alt="חדר טיפולים">
-  </div>
   <div class="hero-content">
     <h1>נגה</h1>
     <h2>עיסוי תאילנדי ופיזיותרפיה</h2>
     <div class="wave"></div>
     <p>לחצים, מתיחות ושחרור עמוק — מגע מקצועי ומכבד, מותאם אישית</p>
   </div>
-  <div class="hero-side">
-    <img src="https://picsum.photos/seed/noga-thai/440/640" alt="עיסוי תאילנדי">
+  <div class="hero-video">
+    <iframe src="https://www.youtube.com/embed/s8wvRy09z9s" title="נגה — עיסוי תאילנדי ופיזיותרפיה" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 
