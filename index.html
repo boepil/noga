@@ -48,7 +48,12 @@
     z-index: 100;
   }
   .logo { display: flex; align-items: center; gap: 10px; }
-  .logo svg { width: 60px; height: 60px; }
+  .logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
   .logo-text { font-size: 20px; font-weight: 700; color: #2f5d4e; line-height: 1.2; }
   .logo-text small { display: block; font-size: 12px; font-weight: 400; color: #8a7a5c; }
   nav { display: flex; gap: 10px; flex-wrap: wrap; font-size: 14px; }
@@ -226,7 +231,7 @@
   @media (max-width: 700px) {
     nav { display: none; }
     .logo-text { font-size: 17px; }
-    .logo svg { width: 50px; height: 50px; }
+    .logo img { width: 50px; height: 50px; }
     .hero-content h1 { font-size: 32px; }
     .hero-content h2 { font-size: 20px; }
     .slideshow { height: 260px; }
@@ -247,12 +252,8 @@
 
 <header>
   <div class="logo">
-    <!-- לוגו - החליפו ב-img עם הלוגו האמיתי -->
-    <svg viewBox="0 0 100 100" aria-label="לוגו">
-      <circle cx="50" cy="50" r="48" fill="#2f5d4e"/>
-      <text x="50" y="60" text-anchor="middle" font-family="Rubik, Arial, sans-serif" font-size="42" font-weight="700" fill="#e3d9bf">נ</text>
-      <path d="M32 72 q9 6 18 0 t18 0" stroke="#b0824f" stroke-width="4" fill="none" stroke-linecap="round"/>
-    </svg>
+    <!-- לוגו -->
+    <img src="hands-small.png" alt="לוגו">
     <div class="logo-text">
       נגה
       <small>עיסוי תאילנדי</small>
@@ -272,7 +273,7 @@
     <h1>נגה צוק</h1>
     <h2>עיסוי תאילנדי מסורתי ויוגה</h2>
     <div class="wave"></div>
-    <p>מגע תנועה בהשקטה</p>
+    <p>מגע קשוב בתנועה</p>
   </div>
   <div class="hero-video">
     <iframe src="https://www.youtube.com/embed/s8wvRy09z9s?autoplay=1&mute=1&controls=0&loop=1&playlist=s8wvRy09z9s&playsinline=1&rel=0" title="נגה — עיסוי תאילנדי ופיזיותרפיה" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
